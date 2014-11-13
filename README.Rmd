@@ -4,6 +4,7 @@ author: "Mateusz Miotk"
 date: "08.11.2014"
 output:
   html_document:
+    toc: true
     keep_md: yes
     theme: readable
   pdf_document: default
@@ -66,8 +67,6 @@ library("xtable")
  m = t(matrix(c(row1,mean1),2,2))
  rownames(m) = rowNamesTable
  colnames(m) = colNamesTable
- #row2 = c("19.97 s","0 s" )
- #row3 = c("19.85 s", "46.4 s")
  d = xtable(m,align = "lrp{3in}") 
  print(m,type='markdown', quote=FALSE)
 

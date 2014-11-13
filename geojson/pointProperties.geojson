@@ -1,0 +1,53 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          18.29395294189453,
+          54.32112902142024
+        ],
+        "type": "Point",
+        "_id": "Borowo"
+      },
+      "properties": {},
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          18.22734832763672,
+          54.29228433409048
+        ],
+        "type": "Point",
+        "_id": "Kiełpino"
+      },
+      "properties": {},
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          18.174133300781246,
+          54.265224078605655
+        ],
+        "type": "Point",
+        "_id": "Goręczyno"
+      },
+      "properties": {},
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          18.20159912109375,
+          54.334342748403365
+        ],
+        "type": "Point",
+        "_id": "Kartuzy"
+      },
+      "properties": {},
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}

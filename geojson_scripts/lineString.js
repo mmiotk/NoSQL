@@ -7,6 +7,9 @@ var line = {"_id":"String","properties":properties, "loc": {"type": "LineString"
 
 var result = [];
 
+
+result.push(start);
+result.push(end);
 result.push(line);
 
-var t = printjson(result);
+printjson(result);

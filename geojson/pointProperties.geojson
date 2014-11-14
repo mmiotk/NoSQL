@@ -43,7 +43,7 @@
       },
       "properties": {
         "popupContent": "To jest punkt w wielokącie",
-        "marker-color": "#00FF00",
+        "marker-color": "#000000",
         "name": "Kiełpino"
       },
       "type": "Feature"

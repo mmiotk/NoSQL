@@ -1,0 +1,173 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          18.36639404296875,
+          54.345551066642514
+        ],
+        "type": "Point",
+        "_id": "Żukowo"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          18.29395294189453,
+          54.32112902142024
+        ],
+        "type": "Point",
+        "_id": "Borowo"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          18.22734832763672,
+          54.29228433409048
+        ],
+        "type": "Point",
+        "_id": "Kiełpino"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          18.174133300781246,
+          54.265224078605655
+        ],
+        "type": "Point",
+        "_id": "Goręczyno"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          18.128814697265625,
+          54.34675177664337
+        ],
+        "type": "Point",
+        "_id": "Łapalice"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          18.163490295410156,
+          54.38915435168489
+        ],
+        "type": "Point",
+        "_id": "Pomieczyńska Huta"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          18.28845977783203,
+          54.38075731892162
+        ],
+        "type": "Point",
+        "_id": "Przodkowo"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          18.20159912109375,
+          54.334342748403365
+        ],
+        "type": "Point",
+        "_id": "Kartuzy"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          17.56439208984375,
+          53.69873910122148
+        ],
+        "type": "Point",
+        "_id": "Chojnice"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          15.258636474609377,
+          51.02887190910807
+        ],
+        "type": "Point",
+        "_id": "Leśna"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          15.296401977539062,
+          51.12378179366606
+        ],
+        "type": "Point",
+        "_id": "Lubań"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          15.516128540039062,
+          51.01721046364217
+        ],
+        "type": "Point",
+        "_id": "Lubomierz"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          15.14533996582031,
+          51.084978552372114
+        ],
+        "type": "Point",
+        "_id": "Wisień Dolny"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          14.650268554687498,
+          52.5846946835471
+        ],
+        "type": "Point",
+        "_id": "Kosztrzyn"
+      },
+      "properties": null,
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}

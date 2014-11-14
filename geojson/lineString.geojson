@@ -3,6 +3,30 @@
     {
       "geometry": {
         "coordinates": [
+          17.56439208984375,
+          53.69873910122148
+        ],
+        "type": "Point",
+        "_id": "Chojnice"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          18.22734832763672,
+          54.29228433409048
+        ],
+        "type": "Point",
+        "_id": "Kiełpino"
+      },
+      "properties": null,
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
           [
             17.56439208984375,
             53.69873910122148

@@ -8,7 +8,7 @@ var table = [];
 query.forEach(function(item){
 
 if(item._id === "Kiełpino"){
-  var tempProperties =  {"name":item._id,"marker-color": "#00FF00","popupContent": "To jest punkt w wielokącie"} ;
+  var tempProperties =  {"name":item._id,"marker-color": "#000000","popupContent": "To jest punkt w wielokącie"} ;
 }
 else{
   var tempProperties = {"name":item._id,"marker-color":"#33FF00","popupContent": "To jest punkt wielokąta"} ;

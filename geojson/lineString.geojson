@@ -15,7 +15,11 @@
         "type": "LineString",
         "_id": "String"
       },
-      "properties": {},
+      "properties": {
+        "stroke-width": 5,
+        "stroke": "#55AA22",
+        "name": "LineString"
+      },
       "type": "Feature"
     }
   ],

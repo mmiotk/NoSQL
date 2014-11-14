@@ -3,37 +3,17 @@
     {
       "geometry": {
         "coordinates": [
-          18.29395294189453,
-          54.32112902142024
-        ],
-        "type": "Point",
-        "_id": "Borowo"
-      },
-      "properties": {},
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
-          18.22734832763672,
-          54.29228433409048
-        ],
-        "type": "Point",
-        "_id": "Kiełpino"
-      },
-      "properties": {},
-      "type": "Feature"
-    },
-    {
-      "geometry": {
-        "coordinates": [
           18.174133300781246,
           54.265224078605655
         ],
         "type": "Point",
         "_id": "Goręczyno"
       },
-      "properties": {},
+      "properties": {
+        "popupContent": "To jest punkt wielokąta",
+        "marker-color": "#33FF00",
+        "name": "Goręczyno"
+      },
       "type": "Feature"
     },
     {
@@ -45,7 +25,43 @@
         "type": "Point",
         "_id": "Kartuzy"
       },
-      "properties": {},
+      "properties": {
+        "popupContent": "To jest punkt wielokąta",
+        "marker-color": "#33FF00",
+        "name": "Kartuzy"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          18.22734832763672,
+          54.29228433409048
+        ],
+        "type": "Point",
+        "_id": "Kiełpino"
+      },
+      "properties": {
+        "popupContent": "To jest punkt w wielokącie",
+        "marker-color": "#00FF00",
+        "name": "Kiełpino"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          18.29395294189453,
+          54.32112902142024
+        ],
+        "type": "Point",
+        "_id": "Borowo"
+      },
+      "properties": {
+        "popupContent": "To jest punkt wielokąta",
+        "marker-color": "#33FF00",
+        "name": "Borowo"
+      },
       "type": "Feature"
     }
   ],

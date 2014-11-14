@@ -1,0 +1,117 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          15.296401977539062,
+          51.12378179366606
+        ],
+        "type": "Point",
+        "_id": "Lubań"
+      },
+      "properties": {
+        "marker-symbol": "bus",
+        "name": "Lubań"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          15.258636474609377,
+          51.02887190910807
+        ],
+        "type": "Point",
+        "_id": "Leśna"
+      },
+      "properties": {
+        "marker-symbol": "bus",
+        "name": "Leśna"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          15.14533996582031,
+          51.084978552372114
+        ],
+        "type": "Point",
+        "_id": "Wisień Dolny"
+      },
+      "properties": {
+        "marker-symbol": "bus",
+        "name": "Wisień Dolny"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          15.516128540039062,
+          51.01721046364217
+        ],
+        "type": "Point",
+        "_id": "Lubomierz"
+      },
+      "properties": {
+        "marker-symbol": "bus",
+        "name": "Lubomierz"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            [
+              15.296401977539062,
+              51.12378179366606
+            ],
+            [
+              15.258636474609377,
+              51.02887190910807
+            ],
+            [
+              15.14533996582031,
+              51.084978552372114
+            ],
+            [
+              15.516128540039062,
+              51.01721046364217
+            ]
+          ]
+        ],
+        "type": "Polygon",
+        "_id": "String"
+      },
+      "properties": {
+        "fill-opacity": 5,
+        "fill": "#99FF99",
+        "name": "Polygon"
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          [
+            15.296401977539062,
+            51.12378179366606
+          ],
+          [
+            15.516128540039062,
+            51.01721046364217
+          ]
+        ],
+        "type": "LineString",
+        "_id": "String"
+      },
+      "properties": {
+        "name": "Line"
+      },
+      "type": "Feature"
+    }
+  ],
+  "type": "FeatureCollection"
+}

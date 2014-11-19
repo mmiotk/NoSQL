@@ -6,7 +6,7 @@ if(mongo.is.connected(mongo)){
       mongo.get.databases(mongo)
       coll = mongo.get.database.collections(mongo,"test")
       
-      testData = mongo.find(mongo,coll)
+      testData = mongo.find(mongo,"test.database")
       
       
       
@@ -26,7 +26,7 @@ if(mongo.is.connected(mongo)){
                   mongo.bson.buffer.append(buf,"_id",tmp[[1]])
                   mongo.bson.buffer.append(buf,"Tags",l)
                   objNew = mongo.bson.from.buffer(buf)
-                  mongo.update(mongo,coll,mongo.cursor.value(testData),objNew,mongo.update.upsert)   
+                  mongo.update(mongo,"test.database",mongo.cursor.value(testData),objNew,mongo.update.upsert)   
             }
             
       }

@@ -181,6 +181,16 @@ WNIOSKI:
 - 2 przypadek był o wiele wolniejszy od 1, ponieważ mamy tutaj komunikację skryptu z bazą MongoDB. W 1 przypadku robimy to mając dane w pamięci operacyjnej.
 - MongoDB wiredtiger wolniej działa obecnie niż MongoDB 2.6.5.
 
+###Kompresja danych w MongoDB
+
+Poniższa tabelka przedstawia rozmiary baz jakie były w przypadku bazy zawierającej wyłącznie Tagi z zadania 1.
+
+|Mongo 2.6.5|Mongo 2.8.0.rc0 wiredtiger MMAP|Mongo 2.8.0.rc0 wiredtiger ZLIB|
+|-----------|-------------------------------|-------------------------------|
+|552.597MB | 810.931MB| 331.618MB|
+
+![obrazek4](pictures/SizeDatabases.png)
+
 ###Zadanie 1d: Geojsony w MongoDB
 
 ####Przygotowanie danych

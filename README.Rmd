@@ -73,9 +73,9 @@ Jednak zauważyć można dziwne zachowanie procesora przy **wiredtiger**
 
 Wyniki zaimportowanych danych są przedstawione w następującej tabeli: 
 
-||Postgres| MongoDB| MongoDB wiredtiger|
-|-|--------|--------|-------------------|
-||6.10 m|6.42 m|8.47m|
+|Nazwa bazy|Postgres| MongoDB| MongoDB wiredtiger|
+|----------|--------|--------|-------------------|
+|Czas wrzucenia bazy|6.10 m|6.42 m|8.47m|
 |Ilość wrzuconych rekordów na sekundę|16487 rekordów|15665 rekordów| - |
 
 Wykres dla PostgresSQL

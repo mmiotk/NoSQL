@@ -20,7 +20,7 @@ Wersja PostgreSQL: 9.3.5
 2. Ponieważ plik Train.csv nie jest typowym plikiem .csv, gdyż rekordy nie są przechowywane w jednej linii, musimy pozbyć się znaków nowej linii. Ponadto, ponieważ jest to plik w systemie DOS, to musimy zastąpić znaki powrotu karetki na znaki nowej linii. Dokonujemy to poleceniem: 
 
 ```bash
-tr -d "\n" < input_file | tr "\r" "\n" > output_file
+  tr -d "\n" < input_file | tr "\r" "\n" > output_file
 ```
 
 Powyższe polecenie wykorzystuje wyłącznie dwa rdzenie procesora.
@@ -38,19 +38,19 @@ Czasy wykonania etapów przedstawiłem w poniższej tabelce:
 
 Do zaimportowania danych w postgreSQL użyłem polecenia: 
 
-```psql
-COPY from <nazwa_tabeli> 'sciezka_do_pliku' 
+```sql
+  COPY from <nazwa_tabeli> 'sciezka_do_pliku' 
 ```
 Zaś do zaimportowania danych do MongoDB polecenia 
 
 ```bash
-mongoimport -d <database> -c <collection> --type csv --file <file_name> --headerline --drop --stopOnError
+  mongoimport -d <database> -c <collection> --type csv --file <file_name> --headerline --drop --stopOnError
 ```
 
 Jeżeli chodzi o MongoDB wiredtiger to należy uruchomić bazę następującym poleceniem: 
 
 ```bash
-./mongod --storageEngine wiredtiger --dbpath <sciezka_do_bazy>
+  mongod --storageEngine wiredtiger --dbpath <sciezka_do_bazy>
 ```
 
 Jednak w przypadku całej bazy **Train.csv** wiredtiger wywala następujący błąd:
@@ -65,10 +65,10 @@ Jednak zauważyć można dziwne zachowanie procesora przy **wiredtiger**
 
 Wyniki zaimportowanych danych są przedstawione w następującej tabeli: 
 
-|Postgres| MongoDB| MongoDB wiredtiger|
-|--------|--------|-------------------|
-|6.10 m|6.42 m|8.47m|
-|16487 rekordów|15665 rekordów| - |
+||Postgres| MongoDB| MongoDB wiredtiger|
+|-|--------|--------|-------------------|
+||6.10 m|6.42 m|8.47m|
+|Ilość wrzuconych rekordów na sekundę|16487 rekordów|15665 rekordów| - |
 
 Wykres dla PostgresSQL
 
@@ -113,7 +113,7 @@ Można to zrobić przy pomocy prostego narzędzia: cut.
 Jednak ja wykorzystałem polecenie. 
 
 ```bash
-mongoexport -d test -c database --csv -f "Tags" -o export.csv
+  mongoexport -d test -c database --csv -f "Tags" -o export.csv
 
 ```
 Okazało się, że mongoexport jest **jednowątkowy** a jego czas wynosi w naszej bazie **4m 55s**.
@@ -130,7 +130,7 @@ W **Script1.R** użyłem pakietu **ff**, która służy do oszczędniejszego prz
 W **Script2.R** również używam pakietu **ff** oraz **parallel**, który pozwala mi wywoływać pętle typu **apply,sapply,lapply** równolegle wykonując następujące polecenie: 
 
 ```r
-mclapply(correctData,replaceString,mc.cores = a
+  mclapply(correctData,replaceString,mc.cores = a
 ```
 
 gdzie **correctData** to nasze dane, **replaceString** to nasza funkcja obrabiająca dane a **mc.cores** to ilość rdzeni jakie chcemy użyć.
@@ -143,17 +143,17 @@ Wykonuje to skrypt: Script3.R
 Podczas przechodzenia przez cursor jaki otrzymamy z find() program wyciąga dane za pomocą polecenia:
 
 ```r
-mongo.bson.value(<cursor>)
+  mongo.bson.value(<cursor>)
 ```
 
 Następnie dokonuje split na otrzymanych danych, a potem tworzy obiekt **BSON** i robi update w bazie.
 
 ```r
   buf = mongo.bson.buffer.create()
-    mongo.bson.buffer.append(buf,"_id",tmp[[1]])
-    mongo.bson.buffer.append(buf,"Tags",l)
-    objNew = mongo.bson.from.buffer(buf)
-    mongo.update(mongo,coll,mongo.cursor.value(testData),objNew,mongo.update.upsert)  
+  mongo.bson.buffer.append(buf,"_id",tmp[[1]])
+  mongo.bson.buffer.append(buf,"Tags",l)
+  objNew = mongo.bson.from.buffer(buf)
+  mongo.update(mongo,coll,mongo.cursor.value(testData),objNew,mongo.update.upsert)  
 ```
 
 #### Przypadek 3: Zamiana formatu danych przy użyciu konsoli MongoDB
@@ -239,10 +239,45 @@ Ogólny widok na mapę:
 Otrzymane dane musiałem zamienić na format **.json**. Wykorzystałem do tego program **jq**. Poza tym każdy obiekt json w pliku musi być w jednej linii. Obrobione dane wyglądają następująco: 
 
 ```js
-{"loc":{"type":"Point","coordinates":[18.36639404296875,54.345551066642514]},"_id":"Żukowo"}
-{"loc":{"type":"Point","coordinates":[18.29395294189453,54.32112902142024]},"_id":"Borowo"}
-{"loc":{"type":"Point","coordinates":[18.22734832763672,54.29228433409048]},"_id":"Kiełpino"}
-{"loc":{"type":"Point","coordinates":[18.174133300781246,54.265224078605655]},"_id":"Goręczyno"}
+{
+  "loc": {
+    "type":"Point",
+    "coordinates": [
+      18.36639404296875,54.345551066642514
+    ]
+  },
+  "_id": "Żukowo"
+}
+
+{
+  "loc": {
+    "type":"Point",
+    "coordinates": [
+      18.29395294189453,54.32112902142024
+    ]
+  },
+  "_id":"Borowo"
+}
+
+{
+  "loc": {
+    "type": "Point",
+    "coordinates": [
+      18.22734832763672,54.29228433409048
+    ]
+  },
+  "_id": "Kiełpino"
+}
+
+{
+  "loc": {
+    "type": "Point",
+    "coordinates": [
+    18.174133300781246,54.265224078605655
+    ]
+  },
+  "_id":"Goręczyno"
+}
 ```
 
 Następnie stworzyłem kolekcję myPlaces w MongoDB wykorzystując polecenie:
@@ -267,8 +302,21 @@ Po wywołaniu funkcji z folderu **geojson_scripts** należy rezultat przepuści�
 1. Wywołanie punktu oraz punktów sąsiednich o 7 km: **point.js**.
 
 ```js
-var findPlace = db.myPlaces.find({"_id":"Kiełpino"}).limit(1).toArray()[0];
-var points = db.myPlaces.find( {loc: { $near : { $geometry: { type: "Point",  coordinates: findPlace.loc.coordinates }, $maxDistance: 7000  } } } );
+var findPlace = db.myPlaces.find({
+  "_id":"Kiełpino"
+}).limit(1).toArray()[0];
+
+var points = db.myPlaces.find({
+  loc: {
+    $near : {
+      $geometry: {
+        type: "Point",
+        coordinates: findPlace.loc.coordinates
+      },
+    $maxDistance: 7000  
+    } 
+  } 
+});
 ```
 
 Punkty te są dodatkowo przetwarzane w różne kolory, figury itd.
@@ -284,12 +332,31 @@ MAPA:
 Linia ma zmieniony kolor na zielony oraz zwiększoną grubość.
 
 ```js
-var start = db.myPlaces.find({_id:"Chojnice"}).limit(1).toArray()[0];
-var end = db.myPlaces.find({_id:"Kiełpino"}).limit(1).toArray()[0];
+var start = db.myPlaces.find({
+  _id:"Chojnice"
+}).limit(1).toArray()[0];
 
-var properties = {"name":"LineString","stroke":"#55AA22","stroke-width":5}
+var end = db.myPlaces.find({
+  _id:"Kiełpino"
+}).limit(1).toArray()[0];
 
-var line = {"_id":"String","properties":properties, "loc": {"type": "LineString", "coordinates":[start.loc.coordinates,end.loc.coordinates]}};
+var properties = {
+  "name": "LineString",
+  "stroke": "#55AA22",
+  "stroke-width":5
+}
+
+var line = {
+  "_id":"String",
+  "properties": properties,
+  "loc": {
+    "type": "LineString",
+    "coordinates": [
+      start.loc.coordinates,
+      end.loc.coordinates
+    ]
+  }
+};
 
 ```
 
@@ -300,10 +367,33 @@ var line = {"_id":"String","properties":properties, "loc": {"type": "LineString"
 3. Narysowanie linii mające wiele punktów od miejsa w kole: **multiLineString.js**.
 
 ```js
-var start = db.myPlaces.find({"_id":"Kosztrzyn"}).limit(1).toArray()[0];
-var cursor = db.myPlaces.find({loc: { $geoWithin: { $center: [ [15.51,51.01],1 ]}}});
+var start = db.myPlaces.find({
+  "_id":"Kosztrzyn"
+}).limit(1).toArray()[0];
+
+var cursor = db.myPlaces.find({
+  loc: {
+    $geoWithin: {
+      $center: [
+        [15.51,51.01],
+        1 
+      ]
+    }
+  }
+});
 ...
-var result = [{"_id":{}, "properties": {}, "loc": {"type": "MultiLineString", "coordinates":[table]}}];
+var result = [
+  {
+    "_id":{},
+    "properties": {},
+    "loc": {
+      "type": "MultiLineString",
+      "coordinates": [
+        table
+      ]
+    }
+  }
+];
 
 ```
 
@@ -315,7 +405,15 @@ MAPA:
 4. Narysowanie punktów jako wielokąt w okręgu: **circle.js**.
 
 ```js
-var points = db.myPlaces.find( {loc: {$within: {$centerSphere: [[18.12,54.34],0.01]} } } );
+var points = db.myPlaces.find({
+  loc: {
+    $within: {
+      $centerSphere: [
+        [18.12,54.34],0.01
+      ]
+    }
+  }
+});
 ...
 ```
 
@@ -326,8 +424,23 @@ var points = db.myPlaces.find( {loc: {$within: {$centerSphere: [[18.12,54.34],0.
 5. Narysowanie punktów wykorzystując różne style w danym wielokącie: **pointProperties.js**.
 
 ```js
-var query = db.myPlaces.find( { loc: {$geoWithin: {$geometry: {type:"Polygon",coordinates: [
-[ [18.36,54.34], [18.12,54.34], [18.17,54.26], [18.36,54.34]  ]] } } } });
+var query = db.myPlaces.find({
+  loc: {
+    $geoWithin: {
+      $geometry: {
+        type:"Polygon",
+        coordinates: [
+          [ 
+            [18.36,54.34],
+            [18.12,54.34],
+            [18.17,54.26],
+            [18.36,54.34]
+          ]
+        ] 
+        }
+      } 
+    } 
+  });
 ...
 ```
 
@@ -338,9 +451,25 @@ var query = db.myPlaces.find( { loc: {$geoWithin: {$geometry: {type:"Polygon",co
 6. Narysowanie wszystkich elementów w jednym między danymi punktami: **AllElements.js**.
 
 ```js
-var start = db.myPlaces.find({_id:"Lubań"}).limit(1).toArray()[0];
-var end = db.myPlaces.find({_id:"Lubomierz"}).limit(1).toArray()[0];
-var points = db.myPlaces.find( {loc: {$nearSphere: {$geometry: {type: "Point", coordinates: start.loc.coordinates },$maxDistance:50000}}} );
+var start = db.myPlaces.find({
+  _id:"Lubań"
+}).limit(1).toArray()[0];
+
+var end = db.myPlaces.find({
+  _id:"Lubomierz" 
+}).limit(1).toArray()[0];
+
+var points = db.myPlaces.find({
+ loc: {
+   $nearSphere: {
+     $geometry: {
+       type: "Point", 
+       coordinates: start.loc.coordinates
+      }
+    ,$maxDistance:50000
+    }
+  }
+});
 ...
 ```
 
